@@ -10,11 +10,11 @@ public class Application {
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
 
-        String[] BeanNames = applicationContext.getBeanFactory().getBeanDefinitionNames();
+        // String[] BeanNames = applicationContext.getBeanFactory().getBeanDefinitionNames();
 
-        for (String beanName : BeanNames) {
-            System.out.println("\n Bean aname:" + beanName);
-        }
+        // for (String beanName : BeanNames) {
+        //     System.out.println("\n Bean aname:" + beanName);
+        // }
 
     }
 }

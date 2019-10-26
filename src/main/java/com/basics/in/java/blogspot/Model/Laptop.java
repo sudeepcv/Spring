@@ -2,7 +2,6 @@ package com.basics.in.java.blogspot.Model;
 
 import org.springframework.stereotype.Component;
 
-
 @Component
 class Laptop {
 
