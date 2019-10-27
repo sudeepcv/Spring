@@ -36,17 +36,17 @@ class LaptopServiceImpl implements LaptopService {
 	}
 
 	@Override
-	public int deleteById(Long id) {
-		return laptopRepository.deleteById(id);
+	public void deleteById(Long id) {
+		laptopRepository.deleteById(id);
 	}
 
 	@Override
-	public int insert(Laptop laptop) {
+	public Laptop insert(Laptop laptop) {
 		return laptopRepository.insert(laptop);
 	}
 
 	@Override
-	public int update(Laptop laptop) {
+	public Laptop update(Laptop laptop) {
 		return laptopRepository.update(laptop);
 	}
 

@@ -2,44 +2,44 @@ package com.basics.in.java.blogspot.Repository;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+
 import com.basics.in.java.blogspot.Model.Laptop;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@Transactional
 public class LaptopRepository {
-
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+    @PersistenceContext
+    EntityManager entityManager;
 
     public List<Laptop> findAll() {
-        return jdbcTemplate.query("select * from laptop", new BeanPropertyRowMapper<Laptop>(Laptop.class));
-
+        TypedQuery<Laptop> namedQuery = entityManager.createNamedQuery("find_all_laptops", Laptop.class);
+        return namedQuery.getResultList();
     }
 
     public Laptop findById(Long id) {
-        return jdbcTemplate.queryForObject("select * from laptop where id=?", new Object[] { id },
-                new BeanPropertyRowMapper<Laptop>(Laptop.class));
+        return entityManager.find(Laptop.class, id);
 
     }
 
-    public int deleteById(Long id) {
-        return jdbcTemplate.update("delete from laptop where id=?", new Object[] { id });
+    public void deleteById(Long id) {
+        Laptop laptop = findById(id);
+        entityManager.remove(laptop);
 
     }
 
-    public int insert(Laptop laptop) {
-        return jdbcTemplate.update("INSERT INTO LAPTOP (ID, NAME, PROCESSOR,RAM )" + "VALUES(?,?,?,?)",
-                new Object[] { laptop.getId(), laptop.getName(), laptop.getProcessor(), laptop.getRam() });
+    public Laptop insert(Laptop laptop) {
+        return entityManager.merge(laptop);
 
     }
 
-    public int update(Laptop laptop) {
-        return jdbcTemplate.update("update laptop set name=? ,processor=?, ram=?" + "where id=?",
-                new Object[] { laptop.getName(), laptop.getProcessor(), laptop.getRam(), laptop.getId() });
+    public Laptop update(Laptop laptop) {
+        return entityManager.merge(laptop);
 
     }
 

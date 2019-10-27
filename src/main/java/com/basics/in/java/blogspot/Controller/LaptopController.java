@@ -41,25 +41,20 @@ public class LaptopController {
         List<Laptop> updatedLaptop = laptopService.findAll();
         model.addAttribute("updatedLaptop", updatedLaptop);
 
-        Laptop newLaptop=new Laptop();
-        newLaptop.setId(10004l);
+        Laptop newLaptop = new Laptop();
         newLaptop.setName("apple");
         newLaptop.setProcessor("intel");
         newLaptop.setRam("8gb");
         laptopService.insert(newLaptop);
 
-          List<Laptop> afterInsertLaptops = laptopService.findAll();
+        List<Laptop> afterInsertLaptops = laptopService.findAll();
         model.addAttribute("afterInsertLaptops", afterInsertLaptops);
-
 
         newLaptop.setName("apple mac book air");
         laptopService.update(newLaptop);
 
-
-                 List<Laptop> afterUpdateLaptops = laptopService.findAll();
+        List<Laptop> afterUpdateLaptops = laptopService.findAll();
         model.addAttribute("afterUpdateLaptops", afterUpdateLaptops);
-
-
 
         return "index.jsp";
     }

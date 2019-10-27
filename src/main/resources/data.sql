@@ -1,3 +1,4 @@
+/*
 create table laptop
     (
        id integer not null,
@@ -6,7 +7,7 @@ create table laptop
        ram varchar(255),
        primary key(id)
     );
-
+*/
 INSERT INTO LAPTOP (ID, NAME, PROCESSOR,RAM )
 VALUES(10001,  'del', 'Intel','2gb');
 

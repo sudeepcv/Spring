@@ -12,11 +12,10 @@ public interface LaptopService {
 
     Laptop findById(Long id);
 
-    int deleteById(Long id);
+    void deleteById(Long id);
 
-    int insert(Laptop laptop);
+    Laptop insert(Laptop laptop);
 
-    int update(Laptop laptop);
-
+    Laptop update(Laptop laptop);
 
 }

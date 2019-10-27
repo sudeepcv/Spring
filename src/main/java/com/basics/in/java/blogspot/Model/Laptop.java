@@ -1,10 +1,15 @@
 package com.basics.in.java.blogspot.Model;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
-@Component
+@Entity
+@NamedQuery(name = "find_all_laptops", query = "select l from Laptop l")
 public class Laptop {
-
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
