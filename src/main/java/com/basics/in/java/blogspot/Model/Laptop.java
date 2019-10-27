@@ -3,7 +3,9 @@ package com.basics.in.java.blogspot.Model;
 import org.springframework.stereotype.Component;
 
 @Component
-class Laptop {
+public class Laptop {
+
+    private Long id;
 
     private String name;
     private String processor;
@@ -32,4 +34,18 @@ class Laptop {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("\nLaptop [id=%s, name=%s, processor=%s, ram=%s]", id, name, processor, ram);
+    }
+
 }

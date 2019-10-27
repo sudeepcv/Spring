@@ -1,3 +1,6 @@
 # Spring
 
-(setter injection) Autowiring by type from bean name 'laptopController' to bean named 'laptopServiceImpl'
+h2 console:   /h2-console/
+jdbcUrl:jdbc:h2:mem:testdb
+username:sa
+password:
