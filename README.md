@@ -1,3 +1,3 @@
 # Spring
 
- Autowiring by type from bean name 'laptopController' via constructor to bean named 'laptopServiceImpl'
+(setter injection) Autowiring by type from bean name 'laptopController' to bean named 'laptopServiceImpl'

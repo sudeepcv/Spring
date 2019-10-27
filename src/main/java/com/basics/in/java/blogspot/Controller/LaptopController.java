@@ -11,11 +11,11 @@ import org.slf4j.LoggerFactory;
 
 @Controller
 public class LaptopController {
-    @Autowired
-    private LaptopService laptopService;
 
-    public LaptopController(LaptopService laptopService) {
-        super();
+    private LaptopService laptopService;
+    @Autowired
+    public void setLaptopService(LaptopService laptopService) {
+
         this.laptopService = laptopService;
 
     }
