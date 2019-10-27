@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.basics.in.java.blogspot.Model.Laptop;
 import com.basics.in.java.blogspot.Repository.LaptopRepository;
@@ -31,7 +32,7 @@ class LaptopServiceImpl implements LaptopService {
 	}
 
 	@Override
-	public Laptop findById(Long id) {
+	public Optional<Laptop> findById(Long id) {
 		return laptopRepository.findById(id);
 	}
 
@@ -41,13 +42,10 @@ class LaptopServiceImpl implements LaptopService {
 	}
 
 	@Override
-	public Laptop insert(Laptop laptop) {
-		return laptopRepository.insert(laptop);
+	public Laptop save(Laptop laptop) {
+		return laptopRepository.save(laptop);
 	}
 
-	@Override
-	public Laptop update(Laptop laptop) {
-		return laptopRepository.update(laptop);
-	}
+
 
 }

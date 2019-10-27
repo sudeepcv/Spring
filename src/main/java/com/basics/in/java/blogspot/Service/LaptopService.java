@@ -1,6 +1,7 @@
 package com.basics.in.java.blogspot.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.basics.in.java.blogspot.Model.Laptop;
 
@@ -10,12 +11,12 @@ public interface LaptopService {
 
     List<Laptop> findAll();
 
-    Laptop findById(Long id);
+    Optional<Laptop>  findById(Long id);
 
     void deleteById(Long id);
 
-    Laptop insert(Laptop laptop);
+    Laptop save(Laptop laptop);
 
-    Laptop update(Laptop laptop);
+
 
 }

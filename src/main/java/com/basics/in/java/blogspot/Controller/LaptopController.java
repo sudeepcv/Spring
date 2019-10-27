@@ -1,6 +1,7 @@
 package com.basics.in.java.blogspot.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.basics.in.java.blogspot.Model.Laptop;
 import com.basics.in.java.blogspot.Service.LaptopService;
@@ -33,7 +34,7 @@ public class LaptopController {
         List<Laptop> laptops = laptopService.findAll();
         model.addAttribute("laptops", laptops);
 
-        Laptop laptop = laptopService.findById(10001l);
+        Optional<Laptop>  laptop = laptopService.findById(10001l);
         model.addAttribute("laptop", laptop);
 
         laptopService.deleteById(10002l);
@@ -45,13 +46,13 @@ public class LaptopController {
         newLaptop.setName("apple");
         newLaptop.setProcessor("intel");
         newLaptop.setRam("8gb");
-        laptopService.insert(newLaptop);
+        laptopService.save(newLaptop);
 
         List<Laptop> afterInsertLaptops = laptopService.findAll();
         model.addAttribute("afterInsertLaptops", afterInsertLaptops);
 
         newLaptop.setName("apple mac book air");
-        laptopService.update(newLaptop);
+        laptopService.save(newLaptop);
 
         List<Laptop> afterUpdateLaptops = laptopService.findAll();
         model.addAttribute("afterUpdateLaptops", afterUpdateLaptops);
